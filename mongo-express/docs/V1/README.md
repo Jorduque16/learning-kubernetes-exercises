@@ -55,7 +55,7 @@ kubectl apply -f mongo-deployment.yml
 kubectl get pod --watch
 kubectl get service
 
-# Check if teh service is attached correctly
+# Check if service is attached correctly
 kubectl describe service mongodb-service
 
 # Get extended pod information
@@ -64,19 +64,7 @@ kubectl get all | grep mongodb
 
 kubectl apply -f dashboard-ingress.yaml
 
-kubectl get pods -n ingress-nginx --watch
-
-
-
-```
-
-## TESTING
-
-In order to test this, we should modify our /etc/host file to add the next line:
-
-``` bash
-vim /etc/hosts
-
-{IP}  dashboard.com
+#port forwarding
+kubectl port-forward svc/mongo-express-service 8081:8081
 
 ```
